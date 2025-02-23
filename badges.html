@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaSmart - Badges & Achievements</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-cyan-700 to-cyan-900 text-white p-4 pb-24">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-6">
+    <div class="text-2xl font-bold">Aqua<span class="text-cyan-300">Smart</span></div>
+    <div class="w-8 h-8 rounded-full bg-pink-500 cursor-pointer"></div>
+  </header>
+
+  <!-- Title -->
+  <h1 class="text-2xl font-semibold text-center mb-6">Badges & Achievements</h1>
+
+  <!-- Badges Section -->
+  <div class="grid grid-cols-2 gap-4 mb-6">
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-3xl">💧</div>
+      <div class="font-bold mt-2">Super Saver</div>
+      <div class="text-sm text-white/70">Saved 1000L of water this month</div>
+    </div>
+
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-3xl">🛠️</div>
+      <div class="font-bold mt-2">Community Hero</div>
+      <div class="text-sm text-white/70">Reported 5+ issues this month</div>
+    </div>
+
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-3xl">🌿</div>
+      <div class="font-bold mt-2">Eco Warrior</div>
+      <div class="text-sm text-white/70">Participated in 3+ clean-up drives</div>
+    </div>
+
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-3xl">💰</div>
+      <div class="font-bold mt-2">Coin Collector</div>
+      <div class="text-sm text-white/70">Collected 1000+ reward points</div>
+    </div>
+  </div>
+
+  <!-- Leaderboard Section -->
+  <h2 class="text-lg font-semibold mb-4">Neighborhood Leaderboard</h2>
+  <div class="bg-white rounded-xl p-4 space-y-2 text-gray-800">
+    <div class="flex justify-between items-center">
+      <div>1. <strong>Anna D.</strong></div>
+      <div class="text-green-500 font-bold">45% saved</div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>2. <strong>Sandy B.</strong></div>
+      <div class="text-green-500 font-bold">42% saved</div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>3. <strong>Elli G.</strong></div>
+      <div class="text-green-500 font-bold">38% saved</div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>4. <strong>Sarah M.</strong></div>
+      <div class="text-green-500 font-bold">27% saved</div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>5. <strong>John D.</strong></div>
+      <div class="text-green-500 font-bold">23% saved</div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>6. <strong>Lisa K.</strong></div>
+      <div class="text-green-500 font-bold">15% saved</div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div>7. <strong>Mike R.</strong></div>
+      <div class="text-green-500 font-bold">10% saved</div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-4 py-3 flex justify-around">
+    <button class="flex flex-col items-center" id="menuButton" onclick="toggleMenu()">
+      <span class="text-2xl mb-1">📋</span>
+      <span class="text-xs">Menu</span>
+    </button>
+    <a href="home.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🏠</span>
+      <span class="text-xs">Home</span>
+    </a>
+    <a href="rewards.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🎖️</span>
+      <span class="text-xs">Rewards</span>
+    </a>
+  </nav>
+
+  <!-- Sliding Sidebar Menu -->
+  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-xl">
+    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-xl" id="user-name">Manya</div>
+    <ul class="mt-8 space-y-4">
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="badges.html" class="flex items-center gap-3">🏅 <span>Badges & Achievements</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="report.html" class="flex items-center gap-3">📢 <span>Report an Issue</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="compare.html" class="flex items-center gap-3">💧 <span>Compare Water Quality</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="community.html" class="flex items-center gap-3">🌍 <span>Community Feed</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="help.html" class="flex items-center gap-3">🆘 <span>Help Desk</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="settings.html" class="flex items-center gap-3">⚙️ <span>Settings</span></a></li>
+    </ul>
+  </div>
+  <!-- JavaScript for Sidebar Toggle -->
+  <script>
+    // Display user's name in the sidebar
+    window.onload = function() {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      if (user) {
+        document.getElementById('user-name').innerText = `Hello, ${user.name}`;
+      }
+    };
+
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menuButton');
+      
+      if (!sidebar.contains(e.target) && 
+          !menuButton.contains(e.target) && 
+          !sidebar.classList.contains('-translate-x-full')) {
+        toggleMenu();
+      }
+    });
+
+    // Tab Switching
+    const timePeriodTabs = document.getElementById('timePeriodTabs');
+    timePeriodTabs.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        timePeriodTabs.querySelectorAll('button').forEach(btn => {
+          btn.classList.remove('bg-cyan-500');
+          btn.classList.add('bg-white/20');
+        });
+        e.target.classList.remove('bg-white/20');
+        e.target.classList.add('bg-cyan-500');
+      }
+    });
+  </script>
+
+</body>
+</html>

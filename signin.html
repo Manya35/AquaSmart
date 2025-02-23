@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - AquaSmart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-blue-100">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center text-blue-600">Sign In</h1>
+    <form id="signin-form" class="mt-6 space-y-4">
+      <input type="text" id="phone" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <input type="password" id="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg">Sign In</button>
+    </form>
+    <p id="signin-message" class="mt-4 text-center text-red-500"></p>
+    <p class="mt-4 text-center text-sm text-gray-600">Don't have an account? <a href="signup.html" class="text-blue-500 hover:underline">Sign Up</a></p>
+  </div>
+
+  <script>
+    const users = {
+      "9876543210": { password: "pass123" },
+      "8765432109": { password: "aqua2024" },
+      "7654321098": { password: "water321" },
+      "6543210987": { password: "green456" },
+      "5432109876": { password: "save789" }
+    };
+
+    document.getElementById('signin-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+
+      if (users[phone] && users[phone].password === password) {
+        // Redirect to home page after successful login
+        window.location.href = "home.html";
+      } else {
+        document.getElementById('signin-message').innerText = "Invalid Phone Number or Password.";
+      }
+    });
+  </script>
+
+</body>
+</html>

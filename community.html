@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Updates - AquaSmart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+      transform: scale(1.02);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-active {
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white p-4 pb-24">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-8">
+    <div class="text-3xl font-extrabold tracking-wide">Aqua<span class="text-cyan-300">Smart</span></div>
+    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-red-500 cursor-pointer shadow-lg"></div>
+  </header>
+
+  <!-- Title -->
+  <h1 class="text-4xl font-bold text-center mb-8 tracking-wide">Community Updates</h1>
+
+  <!-- Daily Alerts Section -->
+  <div class="glass-effect mx-4 p-6 shadow-lg mb-6 hover-glow">
+    <h2 class="font-bold text-xl mb-4">📢 Daily Alerts</h2>
+    <div class="mb-4">
+      <p class="text-red-500 font-bold">⚠️ Scheduled Maintenance</p>
+      <p class="opacity-80">Water supply will be affected in Sector 7 from 10 AM to 2 PM tomorrow.</p>
+    </div>
+    <div>
+      <p class="text-green-400 font-bold">💡 Conservation Tip</p>
+      <p class="opacity-80">Fix leaking taps – a dripping tap can waste more than 20,000L annually.</p>
+    </div>
+  </div>
+
+  <!-- Newsletters Section -->
+  <div class="glass-effect mx-4 p-6 shadow-lg hover-glow">
+    <h2 class="font-bold text-xl mb-4">📰 Latest Newsletters</h2>
+    <p class="text-sm text-center mb-4 opacity-75">(Click on headlines for full articles)</p>
+    <div class="grid grid-cols-3 gap-4 mb-4">
+      <img src="newsletter1.jpg" alt="Newsletter Image 1" class="rounded-lg h-28 object-cover shadow-md hover:scale-105 transition duration-300">
+      <img src="newsletter2.jpg" alt="Newsletter Image 2" class="rounded-lg h-28 object-cover shadow-md hover:scale-105 transition duration-300">
+      <img src="newsletter3.jpg" alt="Newsletter Image 3" class="rounded-lg h-28 object-cover shadow-md hover:scale-105 transition duration-300">
+    </div>
+    <ul class="list-decimal pl-5 space-y-3">
+      <li><a href="#" class="text-blue-400 hover:underline">Delhi govt launches ‘I Love Yamuna’ drive to clean river</a></li>
+      <li><a href="#" class="text-blue-400 hover:underline">Water supply disruption in south Delhi</a></li>
+      <li><a href="#" class="text-blue-400 hover:underline">Delhi govt imposes fine of ₹2,000 for water wastage</a></li>
+    </ul>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-6 py-4 flex justify-around rounded-t-xl shadow-lg">
+    <button class="flex flex-col items-center hover-glow" id="menuButton" onclick="toggleMenu()">
+      <span class="text-2xl mb-1">📋</span>
+      <span class="text-xs">Menu</span>
+    </button>
+    <button onclick="window.location.href='home.html'" class="flex flex-col items-center hover-glow">
+      <span class="text-2xl mb-1">🏠</span>
+      <span class="text-xs">Home</span>
+    </button>
+    <button onclick="window.location.href='rewards.html'" class="flex flex-col items-center hover-glow">
+      <span class="text-2xl mb-1">🎖️</span>
+      <span class="text-xs">Rewards</span>
+    </button>
+  </nav>
+
+  <!-- Sidebar Menu -->
+  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-3xl">
+    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-3xl" id="user-name">Manya</div>
+    <ul class="mt-8 space-y-4 text-lg">
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="badges.html">🏅 Badges & Achievements</a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="report.html">📢 Report an Issue</a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="compare.html">💧 Compare Water Quality</a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="community.html">🌍 Community Feed</a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="help.html">🆘 Help Desk</a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="settings.html">⚙️ Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- JavaScript for Sidebar Toggle -->
+  <script>
+    window.onload = function() {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      if (user) {
+        document.getElementById('user-name').innerText = `Hello, ${user.name}`;
+      }
+    };
+
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menuButton');
+
+      if (!sidebar.contains(e.target) && !menuButton.contains(e.target) && !sidebar.classList.contains('-translate-x-full')) {
+        toggleMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaSmart - Report an Issue</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-cyan-700 to-cyan-900 text-white p-4 pb-24">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-6">
+    <div class="text-2xl font-bold">Aqua<span class="text-cyan-300">Smart</span></div>
+    <div class="w-8 h-8 rounded-full bg-pink-500 cursor-pointer"></div>
+  </header>
+
+  <!-- Title -->
+  <h1 class="text-2xl font-semibold text-center mb-6">Report an Issue</h1>
+
+  <!-- Upload Section -->
+  <div class="mb-4">
+    <label class="block font-semibold mb-2">Upload photo/video</label>
+    <div class="bg-white/20 rounded-xl p-6 text-center cursor-pointer">
+      <input type="file" class="hidden" id="fileUpload">
+      <div class="text-4xl">➕</div>
+      <div class="text-sm text-white/70 mt-2">Max size 2MB</div>
+    </div>
+  </div>
+
+<!-- Issue Type -->
+<div class="mb-4">
+  <label class="block font-semibold mb-2 text-white">Issue Type</label>
+  <select id="issueType" onchange="handleOtherIssue()" class="w-full p-3 rounded-lg bg-cyan-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300 shadow-md">
+    <option value="">Select issue type</option>
+    <option value="Water Wastage">Water Wastage</option>
+    <option value="Water Leakage">Water Leakage</option>
+    <option value="Water Contamination">Water Contamination</option>
+    <option value="Other">Other Issue</option>
+  </select>
+
+  <!-- Text Input for Other Issue -->
+  <input type="text" id="otherIssueInput" placeholder="Please specify the issue..." class="w-full p-3 rounded-lg bg-white/20 text-white mt-3 focus:outline-none focus:ring-2 focus:ring-cyan-300 shadow-md hidden" />
+</div>
+
+<script>
+  function handleOtherIssue() {
+    const issueType = document.getElementById("issueType").value;
+    const otherInput = document.getElementById("otherIssueInput");
+    otherInput.classList.toggle("hidden", issueType !== "Other");
+  }
+</script>
+
+
+  <!-- Issue Description -->
+  <div class="mb-4">
+    <label class="block font-semibold mb-2">Issue Description</label>
+    <textarea class="w-full p-3 rounded-lg bg-white/20 text-white focus:outline-none" rows="4" placeholder="Describe the issue in min. 100 words"></textarea>
+  </div>
+
+<!-- GeoTag Section -->
+<div class="mb-6">
+  <label class="block font-semibold mb-2 text-white">GeoTag</label>
+  <div class="relative w-full h-48 rounded-lg overflow-hidden shadow-lg">
+    <!-- Placeholder Map Image -->
+    <img src="https://res.cloudinary.com/duptmanu9/image/upload/v1740301391/Screenshot_2025-02-23_143255_ssm2fb.png" alt="Map Placeholder" class="w-full h-full object-cover" id="mapPlaceholder">
+  </div>
+
+  <!-- Location Buttons -->
+  <div class="flex justify-between mt-4 space-x-2">
+    <button class="w-1/2 bg-cyan-700 text-white py-2 rounded-lg shadow-md hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-300" onclick="useCurrentLocation()">
+      Use Current Location
+    </button>
+    <button class="w-1/2 bg-gray-600 text-white py-2 rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300" onclick="enterLocationManually()">
+      Enter Manually
+    </button>
+  </div>
+</div>
+
+<!-- Submit Button -->
+<div class="flex justify-center mt-6">
+  <button class="w-3/4 bg-green-600 text-white py-3 rounded-lg shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400" onclick="submitIssue()">
+    Submit Issue
+  </button>
+</div>
+
+<script>
+  function useCurrentLocation() {
+    alert("Fetching current location... (Feature to be implemented)");
+  }
+
+  function enterLocationManually() {
+    const location = prompt("Enter location manually:");
+    if (location) {
+      alert(`Location set to: ${location}`);
+    }
+  }
+
+  function submitIssue() {
+    alert("Issue successfully raised.\nPlease wait for a few days, we will get back to you soon.");
+  }
+</script>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-4 py-3 flex justify-around">
+    <button class="flex flex-col items-center" id="menuButton" onclick="toggleMenu()">
+      <span class="text-2xl mb-1">📋</span>
+      <span class="text-xs">Menu</span>
+    </button>
+    <a href="home.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🏠</span>
+      <span class="text-xs">Home</span>
+    </a>
+    <a href="rewards.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🎖️</span>
+      <span class="text-xs">Rewards</span>
+    </a>
+  </nav>
+
+  <!-- Sliding Sidebar Menu -->
+  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-xl">
+    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-xl" id="user-name">Manya</div>
+    <ul class="mt-8 space-y-4">
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="badges.html" class="flex items-center gap-3">🏅 <span>Badges & Achievements</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="report.html" class="flex items-center gap-3">📢 <span>Report an Issue</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="compare.html" class="flex items-center gap-3">💧 <span>Compare Water Quality</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="community.html" class="flex items-center gap-3">🌍 <span>Community Feed</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="help.html" class="flex items-center gap-3">🆘 <span>Help Desk</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="settings.html" class="flex items-center gap-3">⚙️ <span>Settings</span></a></li>
+    </ul>
+  </div>
+  <!-- JavaScript for Sidebar Toggle -->
+  <script>
+    // Display user's name in the sidebar
+    window.onload = function() {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      if (user) {
+        document.getElementById('user-name').innerText = `Hello, ${user.name}`;
+      }
+    };
+
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menuButton');
+      
+      if (!sidebar.contains(e.target) && 
+          !menuButton.contains(e.target) && 
+          !sidebar.classList.contains('-translate-x-full')) {
+        toggleMenu();
+      }
+    });
+
+    // Tab Switching
+    const timePeriodTabs = document.getElementById('timePeriodTabs');
+    timePeriodTabs.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        timePeriodTabs.querySelectorAll('button').forEach(btn => {
+          btn.classList.remove('bg-cyan-500');
+          btn.classList.add('bg-white/20');
+        });
+        e.target.classList.remove('bg-white/20');
+        e.target.classList.add('bg-cyan-500');
+      }
+    });
+  </script>
+
+</body>
+</html>

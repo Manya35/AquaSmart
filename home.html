@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaSmart - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-cyan-700 to-cyan-800 text-white p-4 pb-24">
+  
+  <!-- Sliding Sidebar Menu -->
+  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-xl">
+    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-xl" id="user-name">Manya</div>
+    <ul class="mt-8 space-y-4">
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="badges.html" class="flex items-center gap-3">🏅 <span>Badges & Achievements</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="report.html" class="flex items-center gap-3">📢 <span>Report an Issue</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="compare.html" class="flex items-center gap-3">💧 <span>Compare Water Quality</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="community.html" class="flex items-center gap-3">🌍 <span>Community Feed</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="help.html" class="flex items-center gap-3">🆘 <span>Help Desk</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="settings.html" class="flex items-center gap-3">⚙️ <span>Settings</span></a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-6">
+    <div class="text-2xl font-bold">Aqua<span class="text-cyan-300">Smart</span></div>
+    <div class="w-8 h-8 rounded-full bg-pink-500 cursor-pointer"></div>
+  </header>
+
+  <!-- Title -->
+  <h1 class="text-2xl mb-6">Home</h1>
+
+  <!-- Monthly Usage Stats -->
+  <div class="bg-white/20 rounded-xl p-4 mb-4 flex justify-between">
+    <div>
+      <div class="text-sm text-white/80">This month's usage</div>
+      <div class="text-2xl font-bold">18 K Liters</div>
+    </div>
+    <div>
+      <div class="text-sm text-white/80">Your monthly target</div>
+      <div class="text-2xl font-bold">50 K Liters</div>
+    </div>
+  </div>
+
+  <!-- Today's Usage -->
+  <div class="bg-white/20 rounded-xl p-4 mb-6">
+    <div class="text-sm text-white/80">Today's usage</div>
+    <div class="text-2xl font-bold">20 Liters</div>
+  </div>
+
+  <!-- Check Water Quality Button with Redirection -->
+  <div class="flex justify-center mb-4">
+    <button onclick="window.location.href='compare.html'" class="px-6 py-2 bg-cyan-600 hover:bg-cyan-700 rounded-full text-white font-semibold shadow-lg transition">
+      💧 Check Water Quality of your Area
+    </button>
+  </div>
+
+
+  <!-- Monthly Graph -->
+  <div class="bg-white rounded-xl p-4 mb-6 relative">
+    <img src="https://res.cloudinary.com/duptmanu9/image/upload/v1740299759/Screenshot_2025-02-23_140530_m89p4q.png" alt="Monthly Usage Graph" class="w-full object-contain">
+    <div class="absolute inset-0 flex items-center justify-center">
+    </div>
+  </div>
+
+  <!-- Time Period Tabs -->
+  <div class="flex gap-2 mb-4" id="timePeriodTabs">
+    <button class="px-4 py-2 rounded-full bg-cyan-500 text-white" data-period="weekly">Weekly</button>
+    <!-- <button class="px-4 py-2 rounded-full bg-white/20" data-period="monthly">Monthly</button> -->
+    <button class="px-4 py-2 rounded-full bg-white/20" data-period="yearly">Yearly</button>
+  </div>
+
+  <!-- Usage Graph -->
+<div class="bg-white rounded-xl p-4 mb-20">
+  <img id="usageGraph" src="https://res.cloudinary.com/duptmanu9/image/upload/v1740299693/Screenshot_2025-02-23_140214_id9s4l.png" alt="Usage Graph" class="w-full h-48 object-contain">
+</div>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-4 py-3 flex justify-around">
+    <button class="flex flex-col items-center" id="menuButton" onclick="toggleMenu()">
+      <span class="text-2xl mb-1">📋</span>
+      <span class="text-xs">Menu</span>
+    </button>
+    <a href="home.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🏠</span>
+      <span class="text-xs">Home</span>
+    </a>
+    <a href="rewards.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🎖️</span>
+      <span class="text-xs">Rewards</span>
+    </a>
+  </nav>
+  
+
+  <script>
+    // Display user's name in the sidebar
+    window.onload = function() {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      if (user) {
+        document.getElementById('user-name').innerText = `Hello, ${user.name}`;
+      }
+    };
+
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menuButton');
+      
+      if (!sidebar.contains(e.target) && 
+          !menuButton.contains(e.target) && 
+          !sidebar.classList.contains('-translate-x-full')) {
+        toggleMenu();
+      }
+    });
+
+    // Tab Switching with Graph Image Toggle
+    const timePeriodTabs = document.getElementById('timePeriodTabs');
+    const usageGraph = document.getElementById('usageGraph');
+
+    const graphImages = {
+      weekly: "https://res.cloudinary.com/duptmanu9/image/upload/v1740299693/Screenshot_2025-02-23_140214_id9s4l.png",
+      // monthly: "https://res.cloudinary.com/duptmanu9/image/upload/v1740299693/Screenshot_2025-02-23_140222_oztrn1.png",
+      yearly: "https://res.cloudinary.com/duptmanu9/image/upload/v1740299693/Screenshot_2025-02-23_140428_pkcjgo.png"
+    };
+
+    timePeriodTabs.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        // Update button styling
+        timePeriodTabs.querySelectorAll('button').forEach(btn => {
+          btn.classList.remove('bg-cyan-500');
+          btn.classList.add('bg-white/20');
+        });
+        e.target.classList.remove('bg-white/20');
+        e.target.classList.add('bg-cyan-500');
+
+        // Change graph image based on selected period
+        const period = e.target.getAttribute('data-period');
+        usageGraph.src = graphImages[period];
+      }
+    });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - AquaSmart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-blue-100">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h1 class="text-2xl font-bold text-center text-blue-600">Sign Up</h1>
+    <form id="signup-form" class="mt-6 space-y-4">
+      <input type="text" id="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <input type="text" id="phone" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <input type="password" id="password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+
+      <!-- District Dropdown -->
+      <select id="district" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <option value="">Select District</option>
+        <option value="North Delhi">North Delhi</option>
+        <option value="South Delhi">South Delhi</option>
+        <option value="Central Delhi">Central Delhi</option>
+        <option value="West Delhi">West Delhi</option>
+        <option value="East Delhi">East Delhi</option>
+      </select>
+
+      <!-- Area Dropdown -->
+      <select id="area" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+        <option value="">Select Area</option>
+      </select>
+
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg">Sign Up</button>
+    </form>
+
+    <p class="mt-4 text-center text-sm text-gray-600">Already have an account? <a href="signin.html" class="text-blue-500 hover:underline">Sign In</a></p>
+  </div>
+
+  <script>
+    // Area options for districts
+    const areaOptions = {
+      "North Delhi": ["Model Town", "Civil Lines", "Timarpur"],
+      "South Delhi": ["Saket", "Hauz Khas", "Mehrauli"],
+      "Central Delhi": ["Connaught Place", "Daryaganj", "Karol Bagh"],
+      "West Delhi": ["Punjabi Bagh", "Rajouri Garden", "Janakpuri"],
+      "East Delhi": ["Preet Vihar", "Laxmi Nagar", "Mayur Vihar"]
+    };
+
+    // Populate area dropdown based on district
+    document.getElementById('district').addEventListener('change', function() {
+      const district = this.value;
+      const areaDropdown = document.getElementById('area');
+      areaDropdown.innerHTML = '<option value="">Select Area</option>';
+
+      if (areaOptions[district]) {
+        areaOptions[district].forEach(area => {
+          areaDropdown.innerHTML += `<option value="${area}">${area}</option>`;
+        });
+      }
+    });
+
+    // Save user data and redirect
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const user = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        password: document.getElementById('password').value,
+        district: document.getElementById('district').value,
+        area: document.getElementById('area').value
+      };
+
+      // Store user data in localStorage
+      localStorage.setItem('currentUser', JSON.stringify(user));
+
+      // Redirect to home page
+      window.location.href = "home.html";
+    });
+  </script>
+
+</body>
+</html>

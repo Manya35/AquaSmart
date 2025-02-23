@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaSmart - Rewards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-cyan-700 to-cyan-900 text-white p-4 pb-24">
+
+  <!-- Sliding Sidebar Menu -->
+  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-xl">
+    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-xl" id="user-name">Manya</div>
+    <ul class="mt-8 space-y-4">
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="badges.html" class="flex items-center gap-3">🏅 <span>Badges & Achievements</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="report.html" class="flex items-center gap-3">📢 <span>Report an Issue</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="compare.html" class="flex items-center gap-3">💧 <span>Compare Water Quality</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="community.html" class="flex items-center gap-3">🌍 <span>Community Feed</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="help.html" class="flex items-center gap-3">🆘 <span>Help Desk</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="settings.html" class="flex items-center gap-3">⚙️ <span>Settings</span></a></li>
+    </ul>
+  </div>
+
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-6">
+    <div class="text-2xl font-bold">Aqua<span class="text-cyan-300">Smart</span></div>
+    <div class="w-8 h-8 rounded-full bg-pink-500 cursor-pointer"></div>
+  </header>
+
+  <!-- Title -->
+  <h1 class="text-2xl font-semibold text-center mb-6">Rewards</h1>
+
+  <!-- Rewards Stats -->
+  <div class="space-y-4">
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-sm text-white/80">Total Points</div>
+      <div class="text-3xl font-bold">2450</div>
+      <div class="text-sm text-white/50">total points earned</div>
+    </div>
+
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-sm text-white/80">This Month</div>
+      <div class="text-3xl font-bold">850</div>
+      <div class="text-sm text-white/50">points earned in January</div>
+    </div>
+
+    <div class="bg-white/20 rounded-xl p-4 text-center">
+      <div class="text-sm text-white/80">Activities</div>
+      <div class="text-3xl font-bold">12</div>
+      <div class="text-sm text-white/50">total activities this month</div>
+    </div>
+  </div>
+
+  <!-- Activity History -->
+  <h2 class="mt-8 text-lg font-semibold">Activity History</h2>
+  <div class="bg-white rounded-xl p-4 mt-2 space-y-2 text-gray-800">
+    <div class="flex justify-between items-center border-b pb-2">
+      <div>
+        <div class="font-semibold">Reported Water Leak</div>
+        <div class="text-sm text-gray-500">1/15/2025 - Leak Detection</div>
+      </div>
+      <div class="font-bold text-yellow-500">+150</div>
+    </div>
+
+    <div class="flex justify-between items-center border-b pb-2">
+      <div>
+        <div class="font-semibold">Yamuna Cleanup Drive Participation</div>
+        <div class="text-sm text-gray-500">1/12/2025 - Community Initiative</div>
+      </div>
+      <div class="font-bold text-yellow-500">+500</div>
+    </div>
+
+    <div class="flex justify-between items-center border-b pb-2">
+      <div>
+        <div class="font-semibold">Water Contamination Alert</div>
+        <div class="text-sm text-gray-500">1/10/2025 - Water Quality</div>
+      </div>
+      <div class="font-bold text-yellow-500">+200</div>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <div>
+        <div class="font-semibold">Rainwater Harvesting Workshop</div>
+        <div class="text-sm text-gray-500">12/18/2024 - Educator</div>
+      </div>
+      <div class="font-bold text-yellow-500">+100</div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-4 py-3 flex justify-around">
+    <button class="flex flex-col items-center" id="menuButton" onclick="toggleMenu()">
+      <span class="text-2xl mb-1">📋</span>
+      <span class="text-xs">Menu</span>
+    </button>
+    <a href="home.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🏠</span>
+      <span class="text-xs">Home</span>
+    </a>
+    <a href="rewards.html" class="flex flex-col items-center">
+      <span class="text-2xl mb-1">🎖️</span>
+      <span class="text-xs">Rewards</span>
+    </a>
+  </nav>
+
+  <!-- JavaScript for Sidebar Toggle -->
+  <script>
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menuButton');
+      
+      if (!sidebar.contains(e.target) && 
+          !menuButton.contains(e.target) && 
+          !sidebar.classList.contains('-translate-x-full')) {
+        toggleMenu();
+      }
+    });
+
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+  </script>
+
+</body>
+</html>
