@@ -5,106 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community Updates - AquaSmart</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .hover-glow:hover {
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
-      transform: scale(1.02);
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-active {
-      background: linear-gradient(45deg, #00c6ff, #0072ff);
-    }
-  </style>
 </head>
-<body class="min-h-screen text-white p-4 pb-24">
+<body class="min-h-screen bg-gradient-to-b from-cyan-700 to-cyan-900 text-white p-4 pb-24">
 
   <!-- Header -->
-  <header class="flex justify-between items-center mb-8">
-    <div class="text-3xl font-extrabold tracking-wide">Aqua<span class="text-cyan-300">Smart</span></div>
-    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-red-500 cursor-pointer shadow-lg"></div>
+  <header class="flex justify-between items-center mb-6">
+    <div class="text-2xl font-bold">Aqua<span class="text-cyan-300">Smart</span></div>
+    <div class="w-8 h-8 rounded-full bg-pink-500 cursor-pointer"></div>
   </header>
 
   <!-- Title -->
-  <h1 class="text-4xl font-bold text-center mb-8 tracking-wide">Community Updates</h1>
+  <h1 class="text-2xl font-semibold text-center mb-6">Community Updates</h1>
 
   <!-- Daily Alerts Section -->
-  <div class="glass-effect mx-4 p-6 shadow-lg mb-6 hover-glow">
-    <h2 class="font-bold text-xl mb-4">📢 Daily Alerts</h2>
-    <div class="mb-4">
-      <p class="text-red-500 font-bold">⚠️ Scheduled Maintenance</p>
-      <p class="opacity-80">Water supply will be affected in Sector 7 from 10 AM to 2 PM tomorrow.</p>
-    </div>
-    <div>
-      <p class="text-green-400 font-bold">💡 Conservation Tip</p>
-      <p class="opacity-80">Fix leaking taps – a dripping tap can waste more than 20,000L annually.</p>
-    </div>
+<div class="bg-gradient-to-r from-red-100 to-red-200 text-black rounded-xl mx-4 p-5 shadow-lg mb-6 border-l-4 border-red-600">
+  <h2 class="font-bold text-lg mb-4 flex items-center gap-2">📢 Daily Alerts</h2>
+  <div class="mb-4 p-3 rounded-lg bg-white shadow-sm">
+    <p class="text-red-700 font-bold">⚠️ Scheduled Maintenance</p>
+    <p class="text-sm">Water supply will be affected in Sector 7 from <span class="font-semibold">10 AM to 2 PM</span> tomorrow.</p>
   </div>
+  <div class="p-3 rounded-lg bg-white shadow-sm">
+    <p class="text-green-700 font-bold">💡 Conservation Tip</p>
+    <p class="text-sm">Fix leaking taps – a dripping tap can waste more than <span class="font-semibold">20,000L annually</span>.</p>
+  </div>
+</div>
 
-  <!-- Newsletters Section -->
-  <div class="glass-effect mx-4 p-6 shadow-lg hover-glow">
-    <h2 class="font-bold text-xl mb-4">📰 Latest Newsletters</h2>
-    <p class="text-sm text-center mb-4 opacity-75">(Click on headlines for full articles)</p>
-    <div class="grid grid-cols-3 gap-4 mb-4">
-      <img src="newsletter1.jpg" alt="Newsletter Image 1" class="rounded-lg h-28 object-cover shadow-md hover:scale-105 transition duration-300">
-      <img src="newsletter2.jpg" alt="Newsletter Image 2" class="rounded-lg h-28 object-cover shadow-md hover:scale-105 transition duration-300">
-      <img src="newsletter3.jpg" alt="Newsletter Image 3" class="rounded-lg h-28 object-cover shadow-md hover:scale-105 transition duration-300">
+<!-- Newsletters Section -->
+<div class="bg-gradient-to-r from-blue-100 to-blue-200 text-black rounded-xl mx-4 p-5 shadow-lg border-l-4 border-blue-600">
+  <h2 class="font-bold text-lg mb-4 flex items-center gap-2">📰 Latest Newsletters</h2>
+  <p class="text-sm text-center mb-4 italic">Click on headlines for full articles</p>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+    <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition">
+      <img src="https://res.cloudinary.com/duptmanu9/image/upload/v1740310462/download_1_lvyk3t.jpg" alt="Newsletter Image 1" class="h-32 w-full object-cover">
+      <div class="p-3">
+        <a href="#" class="font-semibold text-blue-600 hover:underline block">Delhi govt launches ‘I Love Yamuna’ drive to clean river</a>
+      </div>
     </div>
-    <ul class="list-decimal pl-5 space-y-3">
-      <li><a href="#" class="text-blue-400 hover:underline">Delhi govt launches ‘I Love Yamuna’ drive to clean river</a></li>
-      <li><a href="#" class="text-blue-400 hover:underline">Water supply disruption in south Delhi</a></li>
-      <li><a href="#" class="text-blue-400 hover:underline">Delhi govt imposes fine of ₹2,000 for water wastage</a></li>
-    </ul>
+
+    <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition">
+      <img src="https://res.cloudinary.com/duptmanu9/image/upload/v1740310462/download_tytjfe.jpg" alt="Newsletter Image 2" class="h-32 w-full object-cover">
+      <div class="p-3">
+        <a href="#" class="font-semibold text-blue-600 hover:underline block">Water supply disruption in south Delhi</a>
+      </div>
+    </div>
+
+    <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition">
+      <img src="https://res.cloudinary.com/duptmanu9/image/upload/v1740310462/images_fs8jeo.jpg" alt="Newsletter Image 3" class="h-32 w-full object-cover">
+      <div class="p-3">
+        <a href="#" class="font-semibold text-blue-600 hover:underline block">Delhi govt imposes fine of ₹2,000 for water wastage</a>
+      </div>
+    </div>
   </div>
+</div>
 
   <!-- Bottom Navigation -->
-  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-6 py-4 flex justify-around rounded-t-xl shadow-lg">
-    <button class="flex flex-col items-center hover-glow" id="menuButton" onclick="toggleMenu()">
+  <nav class="fixed bottom-0 left-0 right-0 bg-cyan-700 px-4 py-3 flex justify-around">
+    <button class="flex flex-col items-center" id="menuButton" onclick="toggleMenu()">
       <span class="text-2xl mb-1">📋</span>
       <span class="text-xs">Menu</span>
     </button>
-    <button onclick="window.location.href='home.html'" class="flex flex-col items-center hover-glow">
+    <button onclick="window.location.href='home.html'" class="flex flex-col items-center">
       <span class="text-2xl mb-1">🏠</span>
       <span class="text-xs">Home</span>
     </button>
-    <button onclick="window.location.href='rewards.html'" class="flex flex-col items-center hover-glow">
+    <button onclick="window.location.href='rewards.html'" class="flex flex-col items-center">
       <span class="text-2xl mb-1">🎖️</span>
       <span class="text-xs">Rewards</span>
     </button>
   </nav>
-
-  <!-- Sidebar Menu -->
-  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-3xl">
-    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-3xl" id="user-name">Manya</div>
-    <ul class="mt-8 space-y-4 text-lg">
-      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="badges.html">🏅 Badges & Achievements</a></li>
-      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="report.html">📢 Report an Issue</a></li>
-      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="compare.html">💧 Compare Water Quality</a></li>
-      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="community.html">🌍 Community Feed</a></li>
-      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="help.html">🆘 Help Desk</a></li>
-      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg"><a href="settings.html">⚙️ Settings</a></li>
+  <!-- Sliding Sidebar Menu -->
+  <div id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-gradient-to-b from-cyan-800 to-cyan-900 text-white shadow-lg transform -translate-x-full transition-transform z-50 rounded-r-xl">
+    <div class="p-6 bg-cyan-600 text-white font-bold text-2xl rounded-tr-xl" id="user-name">Manya</div>
+    <ul class="mt-8 space-y-4">
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="badges.html" class="flex items-center gap-3">🏅 <span>Badges & Achievements</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="report.html" class="flex items-center gap-3">📢 <span>Report an Issue</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="compare.html" class="flex items-center gap-3">💧 <span>Compare Water Quality</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="community.html" class="flex items-center gap-3">🌍 <span>Community Feed</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="help.html" class="flex items-center gap-3">🆘 <span>Help Desk</span></a></li>
+      <li class="px-6 py-4 hover:bg-cyan-700 rounded-lg text-lg"><a href="settings.html" class="flex items-center gap-3">⚙️ <span>Settings</span></a></li>
     </ul>
   </div>
-
   <!-- JavaScript for Sidebar Toggle -->
   <script>
+    // Display user's name in the sidebar
     window.onload = function() {
       const user = JSON.parse(localStorage.getItem('currentUser'));
       if (user) {
-        document.getElementById('user-name').innerText = `Hello, ${user.name}`;
+        document.getElementById('user-name').innerText = Hello, $;{user.name};
       }
     };
 
@@ -113,12 +101,28 @@
       sidebar.classList.toggle('-translate-x-full');
     }
 
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       const sidebar = document.getElementById('sidebar');
       const menuButton = document.getElementById('menuButton');
-
-      if (!sidebar.contains(e.target) && !menuButton.contains(e.target) && !sidebar.classList.contains('-translate-x-full')) {
+      
+      if (!sidebar.contains(e.target) && 
+          !menuButton.contains(e.target) && 
+          !sidebar.classList.contains('-translate-x-full')) {
         toggleMenu();
+      }
+    });
+
+    // Tab Switching
+    const timePeriodTabs = document.getElementById('timePeriodTabs');
+    timePeriodTabs.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        timePeriodTabs.querySelectorAll('button').forEach(btn => {
+          btn.classList.remove('bg-cyan-500');
+          btn.classList.add('bg-white/20');
+        });
+        e.target.classList.remove('bg-white/20');
+        e.target.classList.add('bg-cyan-500');
       }
     });
   </script>

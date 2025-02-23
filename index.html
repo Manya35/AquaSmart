@@ -10,17 +10,42 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
+
+    /* Glassmorphism Effect */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    /* Hover Effect */
+    .hover-effect {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hover-effect:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 255, 255, 0.4);
+    }
   </style>
 </head>
-<body class="bg-cover bg-center min-h-screen flex items-center justify-center" style="background-image: url('your-background-image-url.jpg');">
+<body class="min-h-screen bg-gradient-to-b from-cyan-700 via-cyan-800 to-cyan-900 flex items-center justify-center text-white">
 
-  <div class="text-center bg-white bg-opacity-70 p-8 rounded-2xl shadow-lg max-w-md">
-    <img src="your-logo-url.png" alt="AquaSmart Logo" class="mx-auto w-32 h-32 mb-6">
-    <h1 class="text-3xl font-bold text-blue-600">AquaSmart</h1>
-    <p class="mt-2 text-blue-800">Conserve Water, Secure the Future</p>
+  <!-- Main Welcome Card with Glassmorphism -->
+  <div class="text-center glass-card p-10 rounded-2xl shadow-2xl max-w-md w-full mx-4 hover-effect">
+    <!-- Logo -->
+    <img src="https://res.cloudinary.com/duptmanu9/image/upload/v1740311865/Screenshot_2025-02-23_172703_xwydjo.png" alt="AquaSmart Logo" class="mx-auto w-32 h-32 rounded-full shadow-lg">
 
+    <!-- App Title -->
+    <h1 class="text-4xl font-bold text-cyan-100 mb-2">Aqua<span class="text-cyan-300">Smart</span></h1>
+    <p class="text-lg text-cyan-200 mb-6">Conserve Water, Secure the Future</p>
+
+    <!-- Get Started Button -->
     <a href="signin.html">
-      <button class="mt-6 bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg shadow transition">
+      <button class="w-full bg-gradient-to-r from-cyan-600 to-blue-500 hover:from-blue-500 hover:to-cyan-600 text-white py-3 px-6 rounded-lg shadow-lg transition duration-300 transform hover:scale-105">
         Get Started
       </button>
     </a>
