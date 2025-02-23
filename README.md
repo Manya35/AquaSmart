@@ -2,6 +2,11 @@
 
 **AquaSmart** is a water conservation web application designed to promote responsible water usage and provide an engaging platform for users to track their contributions, compare water quality, earn rewards, and interact with the community.
 
+## 🌐 Team Members
+- Aanchal Das
+- Ayushi Bhati
+- Manya
+
 ## 🌐 Live Demo
 
 Start the project by opening **`index.html`** in your browser.
